@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="16A323" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Folder" representedClassName="Folder" syncable="YES" codeGenerationType="class">
+        <attribute name="folderTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notes" inverseName="folderRealated" inverseEntity="Notes" syncable="YES"/>
+    </entity>
+    <entity name="Images" representedClassName="Images" syncable="YES" codeGenerationType="class">
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="forNote" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notes" inverseName="images" inverseEntity="Notes" syncable="YES"/>
+    </entity>
+    <entity name="Notes" representedClassName="Notes" syncable="YES" codeGenerationType="class">
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mapImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="notesDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notesTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="folderRealated" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="notes" inverseEntity="Folder" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Images" inverseName="forNote" inverseEntity="Images" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Folder" positionX="-315" positionY="-180" width="128" height="75"/>
+        <element name="Images" positionX="-108" positionY="0" width="128" height="75"/>
+        <element name="Notes" positionX="61" positionY="-288" width="128" height="150"/>
+    </elements>
+</model>
